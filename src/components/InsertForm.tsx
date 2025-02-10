@@ -12,14 +12,12 @@ type FormData = {
   type: "INCOME" | "EXPENSE";
 };
 
-interface InsertFormProps {
-  onDataAdded: () => void;
-}
-const InsertForm = ({ onDataAdded }: InsertFormProps) => {
+const InsertForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
+    reset,
   } = useForm<FormData>({
     mode: "onChange", // 입력할 때마다 유효성 검사
   });
@@ -39,12 +37,14 @@ const InsertForm = ({ onDataAdded }: InsertFormProps) => {
 
       // 성공 메시지 출력
       setSuccessMessage("데이터가 성공적으로 제출되었습니다.");
+
+      // 폼 초기화
+      reset();
     } catch (error) {
       setErrorMessage("데이터 제출 중 오류가 발생했습니다.");
     } finally {
       setLoading(false);
     }
-    onDataAdded();
   };
 
   return (
