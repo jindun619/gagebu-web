@@ -98,6 +98,7 @@ const InsertForm = () => {
         <label className="block text-sm font-medium text-gray-700">금액</label>
         <input
           type="number"
+          step="0.01"
           {...register("amount", {
             required: "금액을 입력해주세요.",
             min: { value: 0.01, message: "금액은 0보다 커야 합니다." },
@@ -116,8 +117,8 @@ const InsertForm = () => {
           {...register("currency", { required: "화폐를 선택해주세요." })}
           className="select select-bordered w-full mt-2"
         >
-          <option value="KRW">KRW</option>
           <option value="CNY">CNY</option>
+          <option value="KRW">KRW</option>
         </select>
       </div>
 

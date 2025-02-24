@@ -4,8 +4,8 @@ import { Filter } from "../types/filter";
 import { Transaction } from "../types/transaction";
 
 export const fetchTransactions = async (
-  sort: Sort | null,
-  filter: Filter | null
+  sort?: Sort | null,
+  filter?: Filter | null
 ): Promise<Transaction[]> => {
   try {
     const queryParams: Record<string, string | number> = {};
