@@ -1,7 +1,7 @@
-import { Transaction } from "../types/transaction";
+import { Transaction } from "../types";
 import { useState, useEffect } from "react";
-import { Sort } from "../types/sort";
-import { Filter } from "../types/filter";
+import { Sort } from "../types";
+import { Filter } from "../types";
 import { FilterForm } from "./FilterForm";
 import { SortForm } from "./SortForm";
 import { TransactionsTable } from "./TransactionsTable";
@@ -13,12 +13,11 @@ const TransactionList = () => {
   const [filter, setFilter] = useState<Filter | null>(null);
   const [filterVisible, setFilterVisible] = useState(false);
 
-  const loadTransactions = async () => {
-    const data = await fetchTransactions(sort, filter);
-    setTransactions(data);
-  };
-
   useEffect(() => {
+    const loadTransactions = async () => {
+      const data = await fetchTransactions(sort, filter);
+      setTransactions(data);
+    };
     loadTransactions();
   }, [sort, filter]);
 
@@ -40,7 +39,7 @@ const TransactionList = () => {
       <SortForm handleSortChange={handleSortChange} />
       <TransactionsTable
         transactions={transactions}
-        fetchTransactions={loadTransactions}
+        fetchTransactions={() => fetchTransactions(sort, filter)}
       />
     </div>
   );

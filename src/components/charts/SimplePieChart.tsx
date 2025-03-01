@@ -1,7 +1,7 @@
 "use client";
 
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-import { DataPoint } from "../../types/chart";
+import { Currency, DataPoint } from "../../types";
 
 const COLORS = [
   "#0088FE",
@@ -18,8 +18,12 @@ const COLORS = [
 
 interface SimplePieChartProps {
   data: DataPoint[];
+  currency?: Currency;
 }
-export default function SimplePieChart({ data }: SimplePieChartProps) {
+export default function SimplePieChart({
+  data,
+  currency,
+}: SimplePieChartProps) {
   const renderCustomLabel = ({
     name,
     value,
@@ -27,7 +31,9 @@ export default function SimplePieChart({ data }: SimplePieChartProps) {
     name: string;
     value: number;
   }) => {
-    return `${name}: ${value}`;
+    return `${name}: ${value}${
+      currency === "CNY" ? "¥" : currency === "KRW" ? "₩" : ""
+    }`;
   };
 
   return (

@@ -1,36 +1,31 @@
 import { useEffect, useState } from "react";
-import SimpleLineChart from "../../components/charts/SimpleLineChart";
 import SimplePieChart from "../../components/charts/SimplePieChart";
-import { DataPoint } from "../../types/chart";
-import { fetchTransactions } from "../../utils/fetch";
-import { Transaction } from "../../types/transaction";
+import { CategoryTotalAmount, DataPoint } from "../../types";
+import { fetchCategoryWiseTotalAmount } from "../../utils/fetch";
+import { convertToDataPoint } from "../../utils/convert";
 
 const AnalysisPage = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [categoryTotalAmount, setCategoryTotalAmount] = useState<
+    CategoryTotalAmount[]
+  >([]);
+  const [data, setData] = useState<DataPoint[]>([]);
 
-  const loadTransactions = async () => {
-    const data = await fetchTransactions();
-    setTransactions(data);
+  const loadCategoryTotalAmount = async () => {
+    const data = await fetchCategoryWiseTotalAmount();
+    setCategoryTotalAmount(data);
   };
 
   useEffect(() => {
-    loadTransactions();
+    loadCategoryTotalAmount();
   }, []);
 
   useEffect(() => {
-    console.log(transactions);
-  }, [transactions]);
-
-  const data: DataPoint[] = [
-    { name: "Apple", value: 400 },
-    { name: "Banana", value: 300 },
-    { name: "Cherry", value: 300 },
-    { name: "Grapes", value: 200 },
-  ];
+    setData(convertToDataPoint(categoryTotalAmount));
+  }, [categoryTotalAmount]);
 
   return (
     <div className="border p-4">
-      <SimplePieChart data={data} />
+      <SimplePieChart data={data} currency="CNY" />
     </div>
   );
 };
