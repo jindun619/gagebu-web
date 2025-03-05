@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gagebu Web
 
-## Getting Started
+Gagebu Web is a personal finance management web application built with **Next.js** and **TypeScript**. It allows users to track their transactions and analyze their spending habits. The project is still under development and currently features two main pages: **Transactions** for displaying transaction lists and **Analysis** for visualizing financial statistics using the **Recharts** library. Data is fetched from the **Gagebu Backend** project (https://github.com/jindun619/gagebu-backend). The app is styled using **TailwindCSS** and **DaisyUI** for a clean and modern design.
 
-First, run the development server:
+## 📚 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)![Recharts](https://img.shields.io/badge/Recharts-FF4154?style=for-the-badge)![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💡 Features (Under Development)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **Transactions Page**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Displays a list of transactions fetched from the **Gagebu Backend**.
+- Supports filtering and sorting of transactions.
 
-## Learn More
+### **Analysis Page**
 
-To learn more about Next.js, take a look at the following resources:
+- Visualizes financial statistics using **Recharts**.
+- Provides insights into spending habits, such as category-wise expenses and trends.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Styling**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Designed with **TailwindCSS** and **DaisyUI** for a responsive and modern user interface.
 
-## Deploy on Vercel
+## Key Learnings
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Built a Next.js application with TypeScript for type safety and scalability.
+- Integrated Recharts for data visualization and analysis.
+- Fetched data from a custom backend (Gagebu Backend) using RESTful APIs.
+- Styled the app using TailwindCSS and DaisyUI for a responsive and modern design.
+- Gained experience in developing a personal finance management tool.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##Future Plans
+
+- Implement more advanced financial analysis features.
+- Improve the UI/UX based on user feedback.
